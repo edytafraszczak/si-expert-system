@@ -1,0 +1,513 @@
+{
+  "bazaWiedzy": {
+    "opis": "Baza wiedzy systemu diagnostyki komputera",
+    "glownaRegula": "Diagnoza",
+    "fakty": [
+      {
+        "nazwa": "kabel",
+        "typ": "boolean",
+        "opis": "Swieci się dioda sygnalizująca zasilanie ?"
+      },
+      {
+        "nazwa": "zasilacz",
+        "typ": "boolean",
+        "opis": "Komputer nie uruchamia sie ?"
+      },
+      {
+        "nazwa": "komputerRestartuje",
+        "typ": "boolean",
+        "opis": "Komputer uruchamia sie i sam restartuje ?"
+      },
+      {
+        "nazwa": "kompyterWydajeDzwiekPrzyRestarcie",
+        "typ": "boolean",
+        "opis": "Komputer wydaje dźwięk przy restarcie ?"
+      },
+      {
+        "nazwa": "wysokaTempProcesa",
+        "typ": "boolean",
+        "opis": "Wysoka temperatura procesora ?"
+      },
+      {
+        "nazwa": "wentylatory",
+        "typ": "boolean",
+        "opis": "Wentylatory chłodzące działają ?"
+      },
+      {
+        "nazwa": "zacinaSie",
+        "typ": "boolean",
+        "opis": "Komputer zacina sie ?"
+      },
+
+      {
+        "nazwa": "wysokiZuzycieDysku",
+        "typ": "boolean",
+        "opis": "Wysokie zużycie dysku ?"
+      },
+      {
+        "nazwa": "dyskBadSektory",
+        "typ": "boolean",
+        "opis": "Program diagnozowania dysku wykrył bad sektory ?"
+      },
+      {
+        "nazwa": "wPrzegladarceReklamy",
+        "typ": "boolean",
+        "opis": "W przeglądarce pojawiają się niechciane reklamy ?"
+      },
+      {
+        "nazwa": "skanerPodatnosci",
+        "typ": "boolean",
+        "opis": "Internetowy skaner podatnosci wykrył złośliwe oprogramowanie ?"
+      },
+      {
+        "nazwa": "myszkaDziala",
+        "typ": "boolean",
+        "opis": "Działa myszka ?"
+      },
+      {
+        "nazwa": "klawiaturaDziala",
+        "typ": "boolean",
+        "opis": "Działa klawiatura ?"
+      },
+      {
+        "nazwa": "pendriveDziala",
+        "typ": "boolean",
+        "opis": "Działa pendrive ?"
+      },
+      {
+        "nazwa": "dyskFragmentacja",
+        "typ": "boolean",
+        "opis": "Wysoka fragmentacja dysku ?"
+      },
+      {
+        "nazwa": "nieMoznaInstalowacProgramow",
+        "typ": "boolean",
+        "opis": "Nie można zainstalować nowych programów ?"
+      },
+      {
+        "nazwa": "nieMoznaAktualizowacSystemu",
+        "typ": "boolean",
+        "opis": "Nie można zaktualizować systemu ?"
+      },
+      {
+        "nazwa": "brakPlikowSystemowych",
+        "typ": "boolean",
+        "opis": "Wyswietla sie monit na biebieskim tle o braku plików systemowych ?"
+      },
+      {
+        "nazwa": "komputerLaczySieZWiFi",
+        "typ": "boolean",
+        "opis": "Komputer łączy się z Internetem poprzez WIFI ?"
+      },
+      {
+        "nazwa": "komputerLaczySieZEthernet",
+        "typ": "boolean",
+        "opis": "Komputer łączy się z Internetem poprzez kabel Ethernet ?"
+      },
+      {
+        "nazwa": "rozmytyEkran",
+        "typ": "boolean",
+        "opis": "Czy ekran jest rozmyty ?"
+      },
+      {
+        "nazwa": "niskaRozdzielczosc",
+        "typ": "boolean",
+        "opis": "Niska rozdzielczość wyświetlanego obrazu ?"
+      },
+      {
+        "nazwa": "niskaLiczbaKolorow",
+        "typ": "boolean",
+        "opis": "Wyświetlana jest niska liczba kolorów = 256 ?"
+      },
+      {
+        "nazwa": "komputerWydajeDzwiekPrzyStarcie",
+        "typ": "boolean",
+        "opis": "Komputer przy starcie wydaje kilkukrotny, krótki piszczący sygnał ?"
+      },
+      {
+        "nazwa": "brakObrazu",
+        "typ": "boolean",
+        "opis": "Brak obrazu na ekranie komputera ?"
+      },
+      {
+        "nazwa": "brakObrazu",
+        "typ": "boolean",
+        "opis": "Brak obrazu na ekranie komputera ?"
+      },
+      {
+        "nazwa": "brakDzwieku",
+        "typ": "boolean",
+        "opis": "System nie wydaje dźwięków ?"
+      },
+      {
+        "nazwa": "konfiguracjaDzwieku",
+        "typ": "boolean",
+        "opis": "Konfiguracja dźwięku wskazuje na poprawną konfigurację ?"
+      }
+    ],
+    "reguly": [
+      {
+        "nazwa": "problemBrakZasilania",
+        "cel": "Problem z zasilaniem",
+        "wskaznikUfnosci": "99",
+        "warunki": [
+          {
+            "nazwa": "kabel",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemBrakSterownikoKartDzwiekowej",
+        "cel": "Brak sterowników do karty dzwiekowej",
+        "wskaznikUfnosci": "90",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "brakDzwieku",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "konfiguracjaDzwieku",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemUszkodzonaKartaGraficzna",
+        "cel": "Uszkodzona karta graficzna",
+        "wskaznikUfnosci": "90",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "komputerWydajeDzwiekPrzyStarcie",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "brakObrazu",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemBrakSterownikoKartyGraficznej",
+        "cel": "Brak sterowników do karty graficznej",
+        "wskaznikUfnosci": "95",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "rozmytyEkran",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "niskaRozdzielczosc",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "niskaLiczbaKolorow",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemBrakSterownikowWifi",
+        "cel": "Brak sterowników do karty wifi",
+        "wskaznikUfnosci": "95",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "komputerLaczySieZWiFi",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "komputerLaczySieZEthernet",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "usunietePlikiSystemowe",
+        "cel": "Brak plików systemowych, należy wykonać reinstall systemu lub spróbować przeprowadzić przywracanie systemu",
+        "wskaznikUfnosci": "99",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "brakPlikowSystemowych",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "komputerRestartuje",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemElektrycznosc",
+        "cel": "Problem z zasilaczem komputera",
+        "wskaznikUfnosci": "98",
+        "warunki": [
+          {
+            "nazwa": "kabel",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "zasilacz",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemDysk",
+        "cel": "Problem z dyskiem",
+        "wskaznikUfnosci": "97",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "komputerRestartuje",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "wysokiZuzycieDysku",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "dyskBadSektory",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemOczyszczaniePamieci",
+        "cel": "Komputer wymaga oczyszczenia pamięci ze zbędnych plików",
+        "wskaznikUfnosci": "99",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "nieMoznaInstalowacProgramow",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "nieMoznaAktualizowacSystemu",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+
+      {
+        "nazwa": "problemDsykFragmentacja",
+        "cel": "Należy wykonać defragmentacje i oczyścić dysk ze zbędnych plików",
+        "wskaznikUfnosci": "99",
+        "warunki": [
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "wysokiZuzycieDysku",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "dyskFragmentacja",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "zacinaSie",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemChlodzenie",
+        "cel": "Problem z dyskiem",
+        "wskaznikUfnosci": "99",
+        "warunki": [
+          {
+            "nazwa": "komputerRestartuje",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "wysokaTempProcesa",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "wentylatory",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          }
+        ]
+      },
+      {
+        "nazwa": "problemWirus",
+        "cel": "Problem z wirusami",
+        "wskaznikUfnosci": "99",
+        "warunki": [
+          {
+            "nazwa": "wysokiZuzycieDysku",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "wPrzegladarceReklamy",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          },
+          {
+            "nazwa": "skanerPodatnosci",
+            "operator": "ROWNA",
+            "wartosc": "true"
+          }
+
+        ]
+      },
+      {
+        "nazwa": "problemUsb",
+        "cel": "Uszkodzone USB",
+        "wskaznikUfnosci": "98",
+        "warunki": [
+          {
+            "nazwa": "myszkaDziala",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "klawiaturaDziala",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "pendriveDziala",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          }
+        ]
+      },
+
+      {
+        "nazwa": "Diagnoza",
+        "cel": "Komputer jest sprawny",
+        "wskaznikUfnosci": "80",
+        "warunki": [
+          {
+            "nazwa": "problemBrakZasilania",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemElektrycznosc",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemDysk",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemBrakSterownikoKartDzwiekowej",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemUszkodzonaKartaGraficzna",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemBrakSterownikoKartyGraficznej",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemBrakSterownikowWifi",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "usunietePlikiSystemowe",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemOczyszczaniePamieci",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemDsykFragmentacja",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemChlodzenie",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemWirus",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          },
+          {
+            "nazwa": "problemUsb",
+            "operator": "ROWNA",
+            "wartosc": "false"
+          }
+
+        ]
+      }
+    ]
+  }
+}
